@@ -18,6 +18,8 @@ const nextConfig = {
   },
   // Disable telemetry
   telemetry: false,
+  // Enable static export for Netlify
+  output: 'export',
 }
 
 module.exports = nextConfig
