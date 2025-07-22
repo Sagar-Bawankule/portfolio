@@ -1,32 +1,32 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Heart, ArrowUp, Github, Linkedin, Twitter, Mail } from 'lucide-react'
+import { Heart, ArrowUp, Github, Linkedin, Twitter, Mail, Instagram } from 'lucide-react'
 
 const socialLinks = [
   {
     name: 'GitHub',
     icon: Github,
-    url: 'https://github.com/sagarbawankule',
-    color: 'hover:text-gray-900 hover:bg-gray-100'
+    url: 'https://github.com/Sagar-Bawankule',
+    color: 'hover:text-white hover:bg-gray-700'
   },
   {
     name: 'LinkedIn',
     icon: Linkedin,
-    url: 'https://linkedin.com/in/sagarbawankule',
-    color: 'hover:text-blue-600 hover:bg-blue-50'
+    url: 'https://www.linkedin.com/in/sagar-bawankule-856a79264/',
+    color: 'hover:text-blue-300 hover:bg-blue-900'
   },
   {
-    name: 'Twitter',
-    icon: Twitter,
-    url: 'https://twitter.com/sagarbawankule',
-    color: 'hover:text-sky-500 hover:bg-sky-50'
+    name: 'Instagram',
+    icon: Instagram,
+    url: 'https://www.instagram.com/thee_sagar_/',
+    color: 'hover:text-pink-300 hover:bg-pink-900'
   },
   {
     name: 'Email',
     icon: Mail,
-    url: 'mailto:sagar.bawankule@example.com',
-    color: 'hover:text-red-500 hover:bg-red-50'
+    url: 'mailto:sagarbawankule334@gmail.com',
+    color: 'hover:text-red-300 hover:bg-red-900'
   }
 ]
 
@@ -49,7 +49,9 @@ const Footer = () => {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-gradient-to-b from-gray-900 to-black text-white">
+    <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-gray-200 relative overflow-hidden">
+      {/* Optional: Subtle overlay for extra depth */}
+      <div className="absolute inset-0 bg-black/30 pointer-events-none" />
       {/* Main Footer Content */}
       <div className="max-w-6xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -64,7 +66,7 @@ const Footer = () => {
             <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
               Sagar Vinod Bawankule
             </h3>
-            <p className="text-gray-300 mb-6 max-w-md leading-relaxed">
+            <p className="text-gray-200 mb-6 max-w-md leading-relaxed">
               AI & Software Developer passionate about building innovative solutions that make a difference. 
               Always excited to collaborate on projects that push the boundaries of technology.
             </p>
@@ -116,7 +118,7 @@ const Footer = () => {
                 >
                   <a
                     href={link.href}
-                    className="text-gray-400 hover:text-white transition-colors duration-200 flex items-center gap-2 group"
+                    className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center gap-2 group"
                   >
                     <span className="w-0 group-hover:w-2 h-0.5 bg-blue-500 transition-all duration-300" />
                     {link.name}
@@ -136,9 +138,10 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-6 text-white">
               Let's Connect
             </h4>
-            <div className="space-y-3 text-gray-400">
-              <p>📧 sagar.bawankule@example.com</p>
-              <p>📍 Mumbai, Maharashtra, India</p>
+            <div className="space-y-3 text-gray-300">
+              <p>📧 sagarbawankule334@gmail.com</p>
+              <p>📞 9158680071</p>
+              <p>📍 Nagpur, Maharashtra, India</p>
               <p>🌟 Available for freelance work</p>
             </div>
             
@@ -163,7 +166,7 @@ const Footer = () => {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="text-gray-400 text-sm flex items-center gap-1"
+              className="text-gray-300 text-sm flex items-center gap-1"
             >
               © {currentYear} Sagar Vinod Bawankule. Made with 
               <motion.span
@@ -188,7 +191,7 @@ const Footer = () => {
                 backgroundColor: "rgba(59, 130, 246, 0.2)"
               }}
               whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white rounded-lg transition-all duration-300 group"
+              className="flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 text-gray-200 hover:text-white rounded-lg transition-all duration-300 group"
             >
               <span className="text-sm">Back to Top</span>
               <ArrowUp className="w-4 h-4 group-hover:-translate-y-1 transition-transform duration-300" />

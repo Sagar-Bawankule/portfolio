@@ -1,81 +1,90 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Award, Calendar, ExternalLink, CheckCircle } from 'lucide-react'
+import { Award, Calendar, ExternalLink } from 'lucide-react'
 
 const certifications = [
   {
     id: 1,
-    title: "AWS Certified Solutions Architect",
-    issuer: "Amazon Web Services",
-    date: "December 2024",
-    credentialId: "AWS-SAA-2024-12345",
-    verifyUrl: "#",
-    status: "Active",
-    description: "Demonstrated expertise in designing distributed systems and architectures on AWS.",
-    logo: "🏛️",
-    color: "from-orange-500 to-orange-600"
+    title: 'AWS Technical Essentials',
+    issuer: 'AWS Training & Certification',
+    date: 'July 10, 2025',
+    skills: ['Cloud Computing', 'AWS Services', 'Foundational Knowledge'],
+    description: 'Core concepts of cloud computing and foundational knowledge of key AWS services.',
+    certificateUrl: '/AWS%20Technical%20Essentials.pdf'
   },
   {
     id: 2,
-    title: "Google Cloud Professional ML Engineer",
-    issuer: "Google Cloud",
-    date: "November 2024",
-    credentialId: "GCP-ML-2024-67890",
-    verifyUrl: "#",
-    status: "Active",
-    description: "Certified in designing and implementing ML solutions using Google Cloud Platform.",
-    logo: "☁️",
-    color: "from-blue-500 to-blue-600"
+    title: 'AI For All Program',
+    issuer: 'Intel & Digital India',
+    date: 'July 8, 2025',
+    skills: ['Artificial Intelligence', 'Real-world Applications'],
+    description: 'Fundamental principles of Artificial Intelligence and its real-world applications.',
+    certificateUrl: '/AI%20For%20All%20Program.png'
   },
   {
     id: 3,
-    title: "Microsoft Azure AI Fundamentals",
-    issuer: "Microsoft",
-    date: "October 2024",
-    credentialId: "MS-AI-2024-11111",
-    verifyUrl: "#",
-    status: "Active",
-    description: "Foundational knowledge of AI and machine learning concepts on Azure.",
-    logo: "🔷",
-    color: "from-blue-600 to-indigo-600"
+    title: 'PHP and MySQL Training',
+    issuer: 'Spoken Tutorial Project, IIT Bombay',
+    date: 'June 24, 2025',
+    skills: ['PHP', 'MySQL', 'Server-side Web Development'],
+    description: 'Server-side web development using the PHP language and MySQL database management.',
+    certificateUrl: '/PHP%20and%20MySQL%20Training.pdf'
   },
   {
     id: 4,
-    title: "TensorFlow Developer Certificate",
-    issuer: "TensorFlow",
-    date: "September 2024",
-    credentialId: "TF-DEV-2024-22222",
-    verifyUrl: "#",
-    status: "Active",
-    description: "Proficiency in using TensorFlow to solve deep learning and ML problems.",
-    logo: "🧠",
-    color: "from-purple-500 to-purple-600"
+    title: 'Introduction to Data Analytics',
+    issuer: 'Simplilearn SkillUp',
+    date: 'February 1, 2025',
+    skills: ['Data Analytics', 'Trend Analysis', 'Data Insights'],
+    description: 'The foundational process of analyzing data to identify trends and derive insights.',
+    certificateUrl: '/Simplilearn%20Certificate.pdf'
   },
   {
     id: 5,
-    title: "Meta React Developer Certificate",
-    issuer: "Meta (Coursera)",
-    date: "August 2024",
-    credentialId: "META-REACT-2024-33333",
-    verifyUrl: "#",
-    status: "Active",
-    description: "Comprehensive React development skills including hooks, state management, and testing.",
-    logo: "⚛️",
-    color: "from-cyan-500 to-cyan-600"
+    title: 'Advanced Software Engineering Job Simulation',
+    issuer: 'Walmart Global Tech & Forage',
+    date: 'January 29, 2025',
+    skills: ['Software Architecture', 'Advanced Data Structures', 'Database Design'],
+    description: 'Practical skills in Software Architecture, Advanced Data Structures, and Database Design.',
+    certificateUrl: '/Advanced%20Software%20Engineering%20Job%20Simulation.pdf'
   },
   {
     id: 6,
-    title: "Docker Certified Associate",
-    issuer: "Docker Inc.",
-    date: "July 2024",
-    credentialId: "DOCKER-DCA-2024-44444",
-    verifyUrl: "#",
-    status: "Active",
-    description: "Containerization expertise with Docker including orchestration and deployment.",
-    logo: "🐳",
-    color: "from-blue-400 to-blue-500"
-  }
+    title: 'Operations Job Simulation',
+    issuer: 'Goldman Sachs & Forage',
+    date: 'January 29, 2025',
+    skills: ['Financial Operations', 'Transaction Processing', 'Corporate Setting'],
+    description: 'Practical understanding of financial operations and transaction processing in a corporate setting.',
+    certificateUrl: '/Operations%20Job%20Simulation.pdf'
+  },
+  {
+    id: 7,
+    title: 'Basics of Python',
+    issuer: 'Infosys Springboard',
+    date: 'January 27, 2025',
+    skills: ['Python', 'Programming Principles', 'Syntax'],
+    description: 'Core programming principles and fundamental syntax of the Python language.',
+    certificateUrl: '/infosysspringboard.pdf'
+  },
+  {
+    id: 8,
+    title: 'RDBMS PostgreSQL Training',
+    issuer: 'Spoken Tutorial Project, IIT Bombay',
+    date: 'January 6, 2025',
+    skills: ['PostgreSQL', 'Relational Databases', 'SQL'],
+    description: 'Principles of Relational Databases and data management using PostgreSQL and SQL.',
+    certificateUrl: '/RDBMS%20PostgreSQL%20Training.pdf'
+  },
+  {
+    id: 9,
+    title: 'The VR Evolution: Redefining Our Digital Experience',
+    issuer: 'GH Raisoni College of Engineering, Nagpur',
+    date: 'July 2, 2024',
+    skills: ['Virtual Reality', 'Digital Experience'],
+    description: 'Core concepts of Virtual Reality (VR) technology and its impact on digital experiences.',
+    certificateUrl: '/The%20VR%20Evolution%20Redefining%20Our%20Digital%20Experience.pdf'
+  },
 ]
 
 const containerVariants = {
@@ -83,45 +92,29 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1
+      staggerChildren: 0.08
     }
   }
 }
 
 const cardVariants = {
-  hidden: { 
-    opacity: 0, 
-    y: 30,
-    scale: 0.95
-  },
-  visible: { 
-    opacity: 1, 
-    y: 0,
-    scale: 1,
-    transition: {
-      duration: 0.5,
-      ease: "easeOut"
-    }
-  }
+  hidden: { opacity: 0, y: 24, scale: 0.97 },
+  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.4, ease: 'easeOut' } }
 }
 
 const Certifications = () => {
   return (
-    <section id="certifications" className="py-20 px-6 bg-gradient-to-b from-gray-50 to-white">
-      <div className="max-w-6xl mx-auto">
+    <section id="certifications" className="py-16 px-4 section-bg-light">
+      <div className="max-w-5xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.5 }}
+          className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Certifications & Achievements
-          </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Industry-recognized certifications demonstrating expertise in cloud computing, AI/ML, and software development
-          </p>
+          <h2 className="section-heading mb-2">Certifications</h2>
+          <p className="section-subheading">Professional credentials and training that demonstrate my expertise and commitment to continuous learning.</p>
         </motion.div>
 
         <motion.div
@@ -129,133 +122,58 @@ const Certifications = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
         >
-          {certifications.map((cert) => (
+          {certifications.map((cert, idx) => (
             <motion.div
               key={cert.id}
               variants={cardVariants}
-              whileHover={{ 
-                y: -8,
-                scale: 1.02,
-                transition: { duration: 0.3, ease: "easeOut" }
-              }}
-              className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 relative overflow-hidden"
+              whileHover={{ y: -6, scale: 1.025, boxShadow: '0 8px 32px rgba(0,0,0,0.12)' }}
+              className="relative border border-cyan-900 rounded-xl p-5 flex flex-col gap-3 shadow-md hover:shadow-xl transition-all duration-300 min-h-[210px] bg-white"
             >
-              {/* Background Gradient */}
-              <div className={`absolute top-0 left-0 w-full h-2 bg-gradient-to-r ${cert.color}`} />
-              
-              {/* Logo and Status */}
-              <div className="flex items-start justify-between mb-4">
-                <div className="flex items-center gap-3">
-                  <div className="text-3xl bg-gray-50 p-2 rounded-xl group-hover:scale-110 transition-transform duration-300">
-                    {cert.logo}
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-green-500" />
-                    <span className="text-sm font-medium text-green-600">{cert.status}</span>
-                  </div>
-                </div>
+              {/* Header */}
+              <div className="flex items-center gap-2 mb-1">
+                <Award className="w-5 h-5 text-blue-500" />
+                <span className="font-semibold text-cyan-900 text-base line-clamp-2">{cert.title}</span>
               </div>
-
-              {/* Certificate Title */}
-              <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-300">
-                {cert.title}
-              </h3>
-
-              {/* Issuer */}
-              <p className="text-blue-600 font-semibold mb-3">
-                {cert.issuer}
-              </p>
-
+              <div className="flex items-center gap-2 text-xs text-cyan-800 mb-1">
+                <span>{cert.issuer}</span>
+                <span className="mx-1">•</span>
+                <Calendar className="w-4 h-4 inline-block" />
+                <span>{cert.date}</span>
+              </div>
               {/* Description */}
-              <p className="text-gray-600 text-sm mb-4 line-clamp-3">
-                {cert.description}
-              </p>
-
-              {/* Date and Credential ID */}
-              <div className="space-y-2 mb-4">
-                <div className="flex items-center gap-2 text-sm text-gray-500">
-                  <Calendar className="w-4 h-4" />
-                  <span>Issued: {cert.date}</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm text-gray-500">
-                  <Award className="w-4 h-4" />
-                  <span className="font-mono text-xs">{cert.credentialId}</span>
-                </div>
+              <div className="text-xs text-gray-700 mb-2 line-clamp-3">{cert.description}</div>
+              {/* Skills */}
+              <div className="flex flex-wrap gap-2 mt-auto">
+                {cert.skills.map((skill, i) => (
+                  <span key={i} className="px-2 py-0.5 rounded-full text-xs font-medium bg-cyan-100 text-cyan-900 border border-cyan-200">
+                    {skill}
+                  </span>
+                ))}
               </div>
-
-              {/* Verify Button */}
-              <motion.a
-                href={cert.verifyUrl}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="flex items-center justify-center gap-2 w-full py-2 bg-gradient-to-r from-gray-900 to-gray-800 text-white rounded-lg hover:from-blue-600 hover:to-blue-700 transition-all duration-300 group/button"
-              >
-                <ExternalLink className="w-4 h-4 group-hover/button:rotate-12 transition-transform duration-300" />
-                <span className="font-medium">Verify Certificate</span>
-              </motion.a>
-
-              {/* Animated border on hover */}
-              <motion.div
-                className="absolute inset-0 rounded-2xl border-2 border-transparent"
-                whileHover={{
-                  borderColor: "rgba(59, 130, 246, 0.3)",
-                  transition: { duration: 0.3 }
-                }}
-              />
+              {/* See Certificate Button */}
+              {cert.certificateUrl && cert.certificateUrl !== '#' ? (
+                <a
+                  href={cert.certificateUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-3 inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-gradient-to-r from-cyan-700 to-fuchsia-700 text-white text-xs font-semibold shadow hover:from-cyan-500 hover:to-fuchsia-500 transition-all duration-200"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  See Certificate
+                </a>
+              ) : (
+                <button
+                  className="mt-3 inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-gray-200 text-gray-500 text-xs font-semibold cursor-not-allowed"
+                  disabled
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  See Certificate
+                </button>
+              )}
             </motion.div>
           ))}
-        </motion.div>
-
-        {/* Stats Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-16 bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8"
-        >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div>
-              <motion.div
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-                className="text-4xl font-bold text-blue-600 mb-2"
-              >
-                6+
-              </motion.div>
-              <p className="text-gray-600">Active Certifications</p>
-            </div>
-            
-            <div>
-              <motion.div
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.7 }}
-                className="text-4xl font-bold text-purple-600 mb-2"
-              >
-                3
-              </motion.div>
-              <p className="text-gray-600">Cloud Platforms</p>
-            </div>
-            
-            <div>
-              <motion.div
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.8 }}
-                className="text-4xl font-bold text-green-600 mb-2"
-              >
-                100%
-              </motion.div>
-              <p className="text-gray-600">Pass Rate</p>
-            </div>
-          </div>
         </motion.div>
       </div>
     </section>

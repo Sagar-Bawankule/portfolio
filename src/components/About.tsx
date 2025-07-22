@@ -3,6 +3,8 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 import Image from 'next/image'
+// Import icons at the top
+import { Lightbulb, Clock, Puzzle } from 'lucide-react'
 
 export default function About() {
   const ref = useRef(null)
@@ -34,20 +36,10 @@ export default function About() {
   return (
     <section 
       ref={ref}
-      className="py-24 bg-gray-50 relative overflow-hidden min-h-[80vh]"
+      className="relative section-bg-white bg-white font-sans overflow-hidden min-h-[80vh] p-0"
       id="about"
     >
-      {/* Subtle Background Gradient */}
-      <div className="absolute inset-0 bg-white"></div>
-      
-      {/* Minimal Pattern */}
-      <div className="absolute inset-0 opacity-[0.02]">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%234F46E5' fill-opacity='0.4'%3E%3Ccircle cx='50' cy='50' r='1'/%3E%3C/g%3E%3C/svg%3E")`,
-        }} />
-      </div>
-
-      <div className="container mx-auto px-8 relative z-10">
+      <div className="container mx-auto px-8 relative z-10 py-24">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -57,13 +49,13 @@ export default function About() {
           {/* Section Header */}
           <motion.div variants={itemVariants} className="text-center mb-16">
             <motion.h2 
-              className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight"
+              className="section-heading text-black"
               variants={itemVariants}
             >
               About Me
             </motion.h2>
             <motion.div
-              className="w-20 h-1 bg-blue-600 mx-auto rounded-full"
+              className="section-divider border-t-4 border-blue-500 w-24 mx-auto mt-4"
               variants={itemVariants}
             />
           </motion.div>
@@ -118,7 +110,7 @@ export default function About() {
 
                 {/* Main Photo Container */}
                 <motion.div
-                  className="relative w-72 h-[420px] rounded-3xl overflow-hidden shadow-2xl bg-white p-4 backdrop-blur-sm border border-white/20"
+                  className="relative w-72 h-[420px] rounded-3xl overflow-hidden shadow-2xl bg-white p-4 backdrop-blur-sm border border-white/20 professional-card"
                   whileHover={{ 
                     scale: 1.03,
                     rotateY: 6,
@@ -196,7 +188,7 @@ export default function About() {
               {/* Introduction */}
               <div className="space-y-6">
                 <motion.h3
-                  className="text-2xl md:text-3xl font-bold text-gray-900"
+                  className="text-2xl md:text-3xl font-bold text-black"
                   variants={itemVariants}
                 >
                   Hi, I'm Sagar Bawankule
@@ -211,7 +203,7 @@ export default function About() {
                 </motion.p>
 
                 <motion.p 
-                  className="text-base text-gray-600 italic border-l-4 border-blue-600 pl-4"
+                  className="text-base text-gray-500 italic border-l-4 border-blue-500 pl-4"
                   variants={itemVariants}
                 >
                   "When I'm not coding, you'll find me exploring the latest AI research papers 
@@ -221,7 +213,7 @@ export default function About() {
 
               {/* Key Skills */}
               <motion.div variants={itemVariants} className="space-y-4">
-                <h4 className="text-xl font-semibold text-gray-900">Core Technologies</h4>
+                <h4 className="text-xl font-semibold text-black">Core Technologies</h4>
                 <div className="flex flex-wrap gap-3">
                   {[
                     'Python', 'JavaScript', 'Java', 'React', 'Node.js', 
@@ -229,7 +221,7 @@ export default function About() {
                   ].map((skill, index) => (
                     <motion.span
                       key={skill}
-                      className="px-4 py-2 bg-white text-gray-700 rounded-full border border-gray-200 text-sm font-medium shadow-md hover:shadow-lg transition-shadow"
+                      className="px-4 py-2 bg-gray-200 text-black rounded-full border border-gray-300 text-sm font-medium shadow-md hover:shadow-lg transition-shadow professional-card"
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: 0.05 * index }}
@@ -241,29 +233,12 @@ export default function About() {
                 </div>
               </motion.div>
 
-              {/* Quick Stats */}
-              <motion.div
-                variants={itemVariants}
-                className="grid grid-cols-3 gap-8 pt-6 border-t border-gray-200"
-              >
-                {[
-                  { number: '6+', label: 'Languages' },
-                  { number: '10+', label: 'Technologies' },
-                  { number: '3+', label: 'Years Experience' },
-                ].map(({ number, label }, index) => (
-                  <div key={label} className="text-center">
-                    <motion.div
-                      className="text-2xl md:text-3xl font-bold text-blue-600 mb-1"
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      transition={{ delay: 0.6 + index * 0.1, type: "spring" }}
-                    >
-                      {number}
-                    </motion.div>
-                    <div className="text-sm text-gray-600 font-medium">{label}</div>
-                  </div>
-                ))}
-              </motion.div>
+              {/* Modern, Personal Soft Skills Highlight */}
+              <div className="flex justify-center mt-8">
+                <span className="px-8 py-2 rounded-2xl bg-gray-100 text-black font-bold text-lg tracking-wide shadow border border-blue-800 text-center">
+                  I excel at solving problems, thinking critically, and managing time—skills that drive my success in tech.
+                </span>
+              </div>
             </motion.div>
           </div>
         </motion.div>

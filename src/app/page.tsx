@@ -1,8 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import LoadingScreen from '@/components/LoadingScreen'
+import { useState, useEffect } from 'react'
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 import About from '@/components/About'
@@ -13,44 +11,34 @@ import Certifications from '@/components/Certifications'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 import FloatingElements from '@/components/FloatingElements'
+import LoadingScreen from '@/components/LoadingScreen'
+import { useIsClient } from '@/hooks/useIsClient'
 
 export default function Home() {
-  const [loading, setLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false)
-    }, 3000) // 3 second loading animation
-
+    // Simulate loading duration (match LoadingScreen duration)
+    const timer = setTimeout(() => setIsLoading(false), 3000) // 3 seconds, adjust as needed
     return () => clearTimeout(timer)
   }, [])
 
-  return (
-    <main className="relative overflow-hidden">
-      <AnimatePresence>
-        {loading && <LoadingScreen key="loading" />}
-      </AnimatePresence>
+  if (isLoading) {
+    return <LoadingScreen />
+  }
 
-      {!loading && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="relative"
-        >
-          <Navbar />
-          <FloatingElements />
-          
-          <Hero />
-          <About />
-          <Education />
-          <Projects />
-          <Skills />
-          <Certifications />
-          <Contact />
-          <Footer />
-        </motion.div>
-      )}
+  return (
+    <main className="min-h-screen">
+      <FloatingElements />
+      <Navbar />
+      <Hero />
+      <About />
+      <Education />
+      <Projects />
+      <Skills />
+      <Certifications />
+      <Contact />
+      <Footer />
     </main>
   )
 }

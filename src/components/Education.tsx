@@ -64,22 +64,22 @@ export default function Education() {
   return (
     <section 
       ref={ref}
-      className="py-20 px-6 bg-white"
+      className="py-20 px-6 section-bg-white bg-gray-900"
       id="education"
     >
 
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-4xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            My <span className="text-blue-600">Education</span>
+          <h2 className="section-heading text-gray-100">
+            Education
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="section-subheading text-gray-300">
             Academic journey from secondary education to specialized AI studies
           </p>
         </motion.div>
@@ -90,53 +90,53 @@ export default function Education() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="space-y-8 mb-16"
+          className="space-y-5 mb-10"
         >
           {educationData.map((edu, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
-              className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 relative group"
+              className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl p-4 shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-800 relative group"
               whileHover={{ scale: 1.01 }}
               transition={{ duration: 0.3 }}
             >
               {/* Timeline Line */}
               {index < educationData.length - 1 && (
-                <div className="absolute left-8 -bottom-8 w-0.5 h-8 bg-gray-300"></div>
+                <div className="absolute left-5 -bottom-5 w-0.5 h-5 bg-gray-700"></div>
               )}
               
               {/* Icon */}
               <motion.div
-                className="absolute -left-4 top-8 w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white shadow-lg"
+                className="absolute -left-2 top-5 w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white shadow"
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.3 }}
               >
-                <span className="text-xl">{edu.icon}</span>
+                <span className="text-base">{edu.icon}</span>
               </motion.div>
 
-              <div className="ml-8">
-                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-4">
+              <div className="ml-6">
+                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-2">
                   <div className="lg:flex-1">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">
+                    <h3 className="text-base font-bold text-gray-100 mb-1">
                       {edu.institution}
                     </h3>
-                    <p className="text-gray-700 font-medium mb-3">
+                    <p className="text-gray-300 font-medium mb-1 text-sm">
                       {edu.degree}
                     </p>
                   </div>
-                  <span className="text-sm text-gray-600 bg-gray-200 px-4 py-2 rounded-full font-medium lg:ml-4">
+                  <span className="text-xs text-gray-300 bg-gray-800 px-2 py-1 rounded-full font-medium lg:ml-4">
                     {edu.period}
                   </span>
                 </div>
                 
-                <div className="flex items-center gap-3">
-                  <span className="text-sm text-gray-600">Score:</span>
-                  <span className="font-bold text-lg text-blue-600">
+                <div className="flex items-center gap-2">
+                  <span className="text-xs text-gray-300">Score:</span>
+                  <span className="font-bold text-sm text-blue-400">
                     {edu.score}
                   </span>
                   {index === 0 && (
                     <motion.span
-                      className="bg-green-100 text-green-700 text-xs px-3 py-1 rounded-full font-medium"
+                      className="bg-green-900 text-green-300 text-[10px] px-2 py-0.5 rounded-full font-medium"
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
                       transition={{ delay: 0.5, type: "spring" }}
@@ -152,17 +152,17 @@ export default function Education() {
 
         {/* Academic Summary */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
           className="text-center"
         >
-          <h3 className="text-2xl font-bold text-gray-900 mb-8">
+          <h3 className="text-lg font-bold text-gray-100 mb-4">
             Academic Highlights
           </h3>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
             {[
               { icon: "🏆", label: "High Achiever", desc: "Consistent Performance" },
               { icon: "🤖", label: "AI Specialist", desc: "Current Focus" },
@@ -175,19 +175,19 @@ export default function Education() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ 
-                  duration: 0.4,
-                  delay: index * 0.05,
+                  duration: 0.3,
+                  delay: index * 0.04,
                   ease: "easeOut"
                 }}
                 whileHover={{ 
-                  scale: 1.05,
-                  backgroundColor: "rgba(59, 130, 246, 0.1)"
+                  scale: 1.04,
+                  backgroundColor: "rgba(59, 130, 246, 0.15)"
                 }}
-                className="text-center p-6 rounded-lg bg-gray-100 border border-gray-200 hover:bg-blue-50 hover:border-blue-200 transition-all duration-300 cursor-default"
+                className="text-center p-3 rounded-lg bg-gray-800 border border-gray-700 hover:bg-blue-900 hover:border-blue-700 transition-all duration-300 cursor-default"
               >
-                <div className="text-3xl mb-3">{item.icon}</div>
-                <div className="text-lg font-bold text-gray-900 mb-2">{item.label}</div>
-                <div className="text-sm text-gray-600">{item.desc}</div>
+                <div className="text-xl mb-1">{item.icon}</div>
+                <div className="text-base font-bold text-gray-100 mb-1">{item.label}</div>
+                <div className="text-xs text-gray-300">{item.desc}</div>
               </motion.div>
             ))}
           </div>
