@@ -12,7 +12,6 @@ import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 import FloatingElements from '@/components/FloatingElements'
 import LoadingScreen from '@/components/LoadingScreen'
-import { useIsClient } from '@/hooks/useIsClient'
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true)
