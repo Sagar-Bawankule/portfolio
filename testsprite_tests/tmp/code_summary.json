@@ -1,0 +1,72 @@
+{
+  "tech_stack": [
+    "TypeScript",
+    "React",
+    "Next.js",
+    "Tailwind CSS",
+    "Framer Motion",
+    "Lucide React Icons"
+  ],
+  "features": [
+    {
+      "name": "Hero Section",
+      "description": "Animated introduction with profile image and smooth transitions.",
+      "files": ["src/components/Hero.tsx"]
+    },
+    {
+      "name": "About Section",
+      "description": "Professional intro, key skills, and personal touch.",
+      "files": ["src/components/About.tsx"]
+    },
+    {
+      "name": "Skills Section",
+      "description": "Card-based layout highlighting technical skills.",
+      "files": ["src/components/Skills.tsx"]
+    },
+    {
+      "name": "Education Section",
+      "description": "Academic background and achievements.",
+      "files": ["src/components/Education.tsx"]
+    },
+    {
+      "name": "Projects Section",
+      "description": "Showcases real-world work and innovative solutions.",
+      "files": ["src/components/Projects.tsx"]
+    },
+    {
+      "name": "Certifications Section",
+      "description": "Displays professional certifications.",
+      "files": ["src/components/Certifications.tsx"]
+    },
+    {
+      "name": "Contact Section",
+      "description": "Contact form for visitors to reach out.",
+      "files": ["src/components/Contact.tsx"]
+    },
+    {
+      "name": "Navbar",
+      "description": "Navigation bar for smooth scrolling between sections.",
+      "files": ["src/components/Navbar.tsx"]
+    },
+    {
+      "name": "Footer",
+      "description": "Footer with social links and quick navigation.",
+      "files": ["src/components/Footer.tsx"]
+    },
+    {
+      "name": "Floating Elements",
+      "description": "Animated floating orbs and icons for visual appeal.",
+      "files": ["src/components/FloatingElements.tsx"]
+    },
+    {
+      "name": "Loading Screen",
+      "description": "Animated loading screen with progress bar.",
+      "files": ["src/components/LoadingScreen.tsx"]
+    },
+    {
+      "name": "useIsClient Hook",
+      "description": "Custom React hook to check if rendering on client side.",
+      "files": ["src/hooks/useIsClient.ts"]
+    }
+  ]
+} 

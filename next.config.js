@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
@@ -16,10 +17,10 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ['framer-motion'],
   },
-  // Disable telemetry
-  telemetry: false,
   // Enable static export for Netlify
   output: 'export',
+  // Optional: Set trailing slash for better static hosting
+  trailingSlash: true,
 }
 
 module.exports = nextConfig
