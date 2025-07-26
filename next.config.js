@@ -9,6 +9,7 @@ const nextConfig = {
         pathname: '/**',
       },
     ],
+    unoptimized: true,
   },
   // Completely disable development indicators and messages
   devIndicators: false,
