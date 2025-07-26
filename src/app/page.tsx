@@ -4,38 +4,39 @@ import { useState, useEffect } from 'react'
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 import About from '@/components/About'
-import Education from '@/components/Education'
+import Experience from '@/components/Experience'
 import Projects from '@/components/Projects'
 import Skills from '@/components/Skills'
-import Certifications from '@/components/Certifications'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
-import FloatingElements from '@/components/FloatingElements'
-import LoadingScreen from '@/components/LoadingScreen'
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    // Simulate loading duration (match LoadingScreen duration)
-    const timer = setTimeout(() => setIsLoading(false), 3000) // 3 seconds, adjust as needed
+    const timer = setTimeout(() => setIsLoading(false), 800)
     return () => clearTimeout(timer)
   }, [])
 
   if (isLoading) {
-    return <LoadingScreen />
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-black">
+        <div className="text-center">
+          <div className="w-12 h-12 border-2 border-white border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-white font-light tracking-wider">LOADING</p>
+        </div>
+      </div>
+    )
   }
 
   return (
-    <main className="min-h-screen">
-      <FloatingElements />
+    <main className="min-h-screen bg-black text-white">
       <Navbar />
       <Hero />
       <About />
-      <Education />
+      <Experience />
       <Projects />
       <Skills />
-      <Certifications />
       <Contact />
       <Footer />
     </main>
