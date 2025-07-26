@@ -1,12 +1,12 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter, Instagram } from 'lucide-react'
+import { Mail, Phone, MapPin, Send, Github, Linkedin, Instagram } from 'lucide-react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { useState } from 'react'
-import emailjs from '@emailjs/browser';
+import emailjs from '@emailjs/browser'
 
 const contactSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -22,22 +22,19 @@ const socialLinks = [
     name: 'GitHub',
     icon: Github,
     url: 'https://github.com/Sagar-Bawankule',
-    color: 'hover:text-gray-900',
-    bg: 'hover:bg-gray-100'
+    color: 'hover:text-slate-900'
   },
   {
     name: 'LinkedIn',
     icon: Linkedin,
     url: 'https://www.linkedin.com/in/sagar-bawankule-856a79264/',
-    color: 'hover:text-blue-600',
-    bg: 'hover:bg-blue-50'
+    color: 'hover:text-blue-600'
   },
   {
     name: 'Instagram',
     icon: Instagram,
     url: 'https://www.instagram.com/thee_sagar_/',
-    color: 'hover:text-sky-500',
-    bg: 'hover:bg-sky-50'
+    color: 'hover:text-pink-600'
   }
 ]
 
@@ -76,30 +73,30 @@ const Contact = () => {
   })
 
   const onSubmit = async (data: ContactFormData) => {
-    setIsSubmitting(true);
+    setIsSubmitting(true)
     try {
       await emailjs.send(
-        'service_znd1djb',      // Your Service ID
-        'template_dd5oj7j',     // Your Template ID
+        'service_znd1djb',
+        'template_dd5oj7j',
         {
-          name: data.name,      // matches {{name}} in your template
-          email: data.email,    // matches {{email}} in your template
-          title: data.subject,    // matches {{title}} in your template (or use subject if your form uses that)
-          message: data.message // matches {{message}} in your template
+          name: data.name,
+          email: data.email,
+          title: data.subject,
+          message: data.message
         },
-        'YFzbVkj8EjlzScSki'     // Your Public Key
-      );
-      setIsSubmitted(true);
-      reset();
+        'YFzbVkj8EjlzScSki'
+      )
+      setIsSubmitted(true)
+      reset()
     } catch (error) {
-      alert('Failed to send message. Please try again later.');
+      alert('Failed to send message. Please try again later.')
     }
-    setIsSubmitting(false);
-    setTimeout(() => setIsSubmitted(false), 5000);
-  };
+    setIsSubmitting(false)
+    setTimeout(() => setIsSubmitted(false), 5000)
+  }
 
   return (
-    <section id="contact" className="py-20 px-6 section-bg-light bg-white font-sans">
+    <section id="contact" className="py-20 px-6 bg-slate-50">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -108,28 +105,28 @@ const Contact = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="section-heading text-black">
+          <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
             Let's Work Together
           </h2>
-          <p className="section-subheading text-gray-700">
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
             Ready to discuss your next project or just want to say hello? I'd love to hear from you.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Information */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="space-y-8"
           >
             <div>
-              <h3 className="text-2xl font-bold text-black mb-6">
+              <h3 className="text-2xl font-bold text-slate-900 mb-4">
                 Get In Touch
               </h3>
-              <p className="text-gray-700 leading-relaxed mb-8">
+              <p className="text-slate-600 leading-relaxed">
                 I'm always excited to work on new projects and collaborate with fellow developers. 
                 Whether you have a project in mind, need technical consultation, or just want to 
                 connect, feel free to reach out!
@@ -149,15 +146,14 @@ const Contact = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                    whileHover={{ scale: 1.02, x: 5 }}
-                    className="flex items-center gap-4 professional-card rounded-xl shadow-md hover:shadow-lg transition-all duration-300 group bg-gray-800 border border-gray-700"
+                    className="flex items-center gap-4 bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-200 border border-slate-200 hover:border-slate-300"
                   >
-                    <div className="p-3 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg group-hover:scale-110 transition-transform duration-300">
-                      <IconComponent className="w-5 h-5 text-white" />
+                    <div className="p-3 bg-blue-100 rounded-lg">
+                      <IconComponent className="w-5 h-5 text-blue-600" />
                     </div>
                     <div>
-                      <p className="font-semibold text-gray-100">{info.label}</p>
-                      <p className="text-gray-700">{info.value}</p>
+                      <p className="font-semibold text-slate-900">{info.label}</p>
+                      <p className="text-slate-600">{info.value}</p>
                     </div>
                   </motion.a>
                 )
@@ -166,7 +162,7 @@ const Contact = () => {
 
             {/* Social Links */}
             <div>
-              <h4 className="text-lg font-semibold text-black mb-4">
+              <h4 className="text-lg font-semibold text-slate-900 mb-4">
                 Connect With Me
               </h4>
               <div className="flex gap-4">
@@ -183,11 +179,9 @@ const Contact = () => {
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.4, delay: index * 0.1 }}
-                      whileHover={{ scale: 1.1, y: -2 }}
-                      whileTap={{ scale: 0.95 }}
-                      className={`p-3 professional-card rounded-xl shadow-md transition-all duration-300 text-blue-600 hover:bg-blue-100 hover:text-blue-700`}
+                      className="p-3 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-200 border border-slate-200 hover:border-slate-300"
                     >
-                      <IconComponent className="w-6 h-6" />
+                      <IconComponent className="w-6 h-6 text-slate-600" />
                     </motion.a>
                   )
                 })}
@@ -197,13 +191,13 @@ const Contact = () => {
 
           {/* Contact Form */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="professional-card rounded-2xl shadow-xl p-8 bg-white border border-gray-300"
+            className="bg-white rounded-2xl shadow-sm p-8 border border-slate-200"
           >
-            <h3 className="text-2xl font-bold text-black mb-6">
+            <h3 className="text-2xl font-bold text-slate-900 mb-6">
               Send a Message
             </h3>
 
@@ -211,7 +205,7 @@ const Contact = () => {
               <motion.div
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="mb-6 p-4 bg-green-100 border border-green-700 rounded-lg"
+                className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg"
               >
                 <p className="text-green-700 font-medium">
                   Thank you! Your message has been sent successfully.
@@ -222,14 +216,14 @@ const Contact = () => {
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-black mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium text-slate-700 mb-2">
                     Full Name
                   </label>
                   <input
                     {...register('name')}
                     type="text"
                     id="name"
-                    className="w-full px-4 py-3 border border-gray-300 bg-white text-black rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                     placeholder="Your name"
                   />
                   {errors.name && (
@@ -238,14 +232,14 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-black mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-2">
                     Email Address
                   </label>
                   <input
                     {...register('email')}
                     type="email"
                     id="email"
-                    className="w-full px-4 py-3 border border-gray-300 bg-white text-black rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                     placeholder="your.email@example.com"
                   />
                   {errors.email && (
@@ -255,14 +249,14 @@ const Contact = () => {
               </div>
 
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-black mb-2">
+                <label htmlFor="subject" className="block text-sm font-medium text-slate-700 mb-2">
                   Subject
                 </label>
                 <input
                   {...register('subject')}
                   type="text"
                   id="subject"
-                  className="w-full px-4 py-3 border border-gray-300 bg-white text-black rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                   placeholder="What's this about?"
                 />
                 {errors.subject && (
@@ -271,14 +265,14 @@ const Contact = () => {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-black mb-2">
+                <label htmlFor="message" className="block text-sm font-medium text-slate-700 mb-2">
                   Message
                 </label>
                 <textarea
                   {...register('message')}
                   id="message"
                   rows={5}
-                  className="w-full px-4 py-3 border border-gray-300 bg-white text-black rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-vertical"
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-vertical"
                   placeholder="Tell me about your project or just say hello!"
                 />
                 {errors.message && (
