@@ -1,247 +1,171 @@
 'use client'
 
-import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
+import { motion } from 'framer-motion'
 import Image from 'next/image'
-// Import icons at the top
-import { Lightbulb, Clock, Puzzle } from 'lucide-react'
+import { CheckCircle, Code, Brain, Zap, ArrowRight } from 'lucide-react'
 
 export default function About() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.3 })
+  const highlights = [
+    "Full-stack development with modern technologies",
+    "AI/ML model development and deployment",
+    "Cloud infrastructure and DevOps practices",
+    "Problem-solving and analytical thinking"
+  ]
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.2
-      }
-    }
-  }
-
-  const itemVariants = {
-    hidden: { y: 60, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut"
-      }
-    }
-  }
+  const skills = [
+    { icon: Code, title: "Software Development", desc: "Building scalable applications with clean architecture" },
+    { icon: Brain, title: "AI & Machine Learning", desc: "Developing intelligent solutions for real-world problems" },
+    { icon: Zap, title: "Performance Optimization", desc: "Creating fast, efficient, and user-friendly applications" }
+  ]
 
   return (
-    <section 
-      ref={ref}
-      className="relative section-bg-white bg-white font-sans overflow-hidden min-h-[80vh] p-0"
-      id="about"
-    >
-      <div className="container mx-auto px-8 relative z-10 py-24">
+    <section id="about" className="py-32 px-6 bg-black">
+      <div className="max-w-7xl mx-auto">
+        {/* Magazine Header */}
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          className="max-w-5xl mx-auto"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-20"
         >
-          {/* Section Header */}
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <motion.h2 
-              className="section-heading text-black"
-              variants={itemVariants}
-            >
-              About Me
-            </motion.h2>
-            <motion.div
-              className="section-divider border-t-4 border-blue-500 w-24 mx-auto mt-4"
-              variants={itemVariants}
-            />
-          </motion.div>
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <div className="w-16 h-px bg-white"></div>
+            <span className="text-sm font-light tracking-widest text-gray-400">ABOUT</span>
+            <div className="w-16 h-px bg-white"></div>
+          </div>
+          <h2 className="text-5xl lg:text-7xl font-bold mb-6">
+            THE STORY
+          </h2>
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+            A passionate developer focused on creating intelligent solutions that make a real impact
+          </p>
+        </motion.div>
 
-          <div className="grid lg:grid-cols-5 gap-14 items-center">
-            {/* Left Column - Profile Photo */}
-            <motion.div
-              variants={itemVariants}
-              className="lg:col-span-2 flex justify-center"
-            >
-              <div className="relative">
-                {/* Background Effects */}
-                <motion.div
-                  className="absolute -inset-6 bg-gradient-to-r from-blue-400/20 via-purple-400/20 to-pink-400/20 rounded-3xl blur-xl"
-                  animate={{
-                    scale: [1, 1.1, 1],
-                    rotate: [0, 5, -5, 0],
-                  }}
-                  transition={{
-                    duration: 8,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                />
-                
-                <motion.div
-                  className="absolute -top-3 -right-3 w-16 h-16 bg-gradient-to-br from-blue-500/30 to-purple-500/30 rounded-full blur-lg"
-                  animate={{
-                    y: [0, -8, 0],
-                    x: [0, 4, 0],
-                    scale: [1, 1.2, 1],
-                  }}
-                  transition={{
-                    duration: 6,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                />
-                
-                <motion.div
-                  className="absolute -bottom-4 -left-4 w-24 h-24 bg-gradient-to-tr from-purple-500/20 to-blue-500/20 rounded-2xl blur-lg"
-                  animate={{
-                    rotate: [0, 90, 180, 270, 360],
-                    scale: [1, 0.8, 1],
-                  }}
-                  transition={{
-                    duration: 12,
-                    repeat: Infinity,
-                    ease: "linear"
-                  }}
-                />
-
-                {/* Main Photo Container */}
-                <motion.div
-                  className="relative w-72 h-[420px] rounded-3xl overflow-hidden shadow-2xl bg-white p-4 backdrop-blur-sm border border-white/20 professional-card"
-                  whileHover={{ 
-                    scale: 1.03,
-                    rotateY: 6,
-                    rotateX: 4,
-                  }}
-                  transition={{ duration: 0.4 }}
-                  style={{
-                    transformStyle: "preserve-3d",
-                    aspectRatio: "4/5"
-                  }}
-                >
-                  <div className="w-full h-full rounded-2xl overflow-hidden relative">
-                    <Image
-                      src="/profilephoto.webp"
-                      alt="Sagar Bawankule - AI & Software Developer"
-                      fill
-                      className="object-cover transition-all duration-500 hover:scale-105"
-                      priority
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    />
-                    {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-blue-900/10 via-transparent to-transparent" />
-                    {/* Shine Effect */}
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12"
-                      animate={{
-                        x: [-100, 300],
-                      }}
-                      transition={{
-                        duration: 3,
-                        repeat: Infinity,
-                        repeatDelay: 5,
-                        ease: "easeInOut"
-                      }}
-                    />
-                  </div>
-                </motion.div>
-                
-                {/* Enhanced Professional Badge */}
-                <motion.div
-                  className="absolute -bottom-4 -right-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl px-4 py-2 shadow-lg border border-white/20"
-                  initial={{ scale: 0, rotate: 8 }}
-                  animate={{ scale: 1, rotate: -3 }}
-                  transition={{ delay: 0.6, type: "spring", bounce: 0.4 }}
-                  whileHover={{ 
-                    scale: 1.05, 
-                    rotate: 0,
-                  }}
-                >
-                  <div className="flex items-center space-x-1.5">
-                    <motion.div 
-                      className="w-1.5 h-1.5 bg-green-400 rounded-full"
-                      animate={{ scale: [1, 1.2, 1] }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                    />
-                    <span className="text-xs font-semibold">Available</span>
-                  </div>
-                </motion.div>
-
-                {/* Floating Elements */}
-                <motion.div
-                  className="absolute -top-4 -left-4 bg-white/80 backdrop-blur-md text-blue-600 rounded-lg px-2 py-1 shadow-md border border-blue-100"
-                  initial={{ opacity: 0, scale: 0.8, rotate: -8 }}
-                  animate={{ opacity: 1, scale: 1, rotate: -3 }}
-                  transition={{ delay: 0.8, type: "spring" }}
-                  whileHover={{ scale: 1.05, rotate: 0 }}
-                >
-                  <span className="text-xs font-medium">🚀 AI Dev</span>
-                </motion.div>
-              </div>
-            </motion.div>
-
-            {/* Right Column - Content */}
-            <motion.div variants={itemVariants} className="lg:col-span-3 space-y-10">
-              {/* Introduction */}
+        <div className="grid lg:grid-cols-12 gap-16 items-center">
+          {/* Left Content - Magazine Style */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="lg:col-span-7 space-y-12"
+          >
+            {/* Main Content */}
+            <div className="space-y-8">
               <div className="space-y-6">
-                <motion.h3
-                  className="text-2xl md:text-3xl font-bold text-black"
-                  variants={itemVariants}
-                >
-                  Hi, I'm Sagar Bawankule
-                </motion.h3>
+                <h3 className="text-3xl font-bold">WHO I AM</h3>
+                <p className="text-lg text-gray-300 leading-relaxed">
+                  I'm a dedicated AI & Software Developer with a passion for building innovative solutions 
+                  that bridge the gap between cutting-edge technology and practical applications. My journey 
+                  in software development has been driven by curiosity and a desire to solve complex problems.
+                </p>
                 
-                <motion.p 
-                  className="text-lg text-gray-700 leading-relaxed"
-                  variants={itemVariants}
-                >
-                  I'm a passionate AI & Software Developer currently pursuing B.Tech in Artificial Intelligence. 
-                  I specialize in building intelligent applications that solve real-world problems.
-                </motion.p>
-
-                <motion.p 
-                  className="text-base text-gray-500 italic border-l-4 border-blue-500 pl-4"
-                  variants={itemVariants}
-                >
-                  "When I'm not coding, you'll find me exploring the latest AI research papers 
-                  or experimenting with new technologies."
-                </motion.p>
+                <p className="text-lg text-gray-300 leading-relaxed">
+                  Currently pursuing my education while working on real-world projects, I specialize in 
+                  full-stack development, machine learning, and creating intelligent systems that can 
+                  adapt and learn from data.
+                </p>
               </div>
 
-              {/* Key Skills */}
-              <motion.div variants={itemVariants} className="space-y-4">
-                <h4 className="text-xl font-semibold text-black">Core Technologies</h4>
-                <div className="flex flex-wrap gap-3">
-                  {[
-                    'Python', 'JavaScript', 'Java', 'React', 'Node.js', 
-                    'Flask', 'MySQL', 'PostgreSQL', 'ML', 'AI'
-                  ].map((skill, index) => (
-                    <motion.span
-                      key={skill}
-                      className="px-4 py-2 bg-gray-200 text-black rounded-full border border-gray-300 text-sm font-medium shadow-md hover:shadow-lg transition-shadow professional-card"
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: 0.05 * index }}
-                      whileHover={{ scale: 1.08 }}
+              {/* Key Highlights */}
+              <div className="space-y-6">
+                <h4 className="text-2xl font-bold">WHAT I BRING</h4>
+                <div className="grid gap-4">
+                  {highlights.map((highlight, index) => (
+                    <motion.div
+                      key={highlight}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      className="flex items-center gap-4 group"
                     >
-                      {skill}
-                    </motion.span>
+                      <CheckCircle className="w-5 h-5 text-white flex-shrink-0" />
+                      <span className="text-gray-300 group-hover:text-white transition-colors duration-200">{highlight}</span>
+                    </motion.div>
                   ))}
                 </div>
-              </motion.div>
-
-              {/* Modern, Personal Soft Skills Highlight */}
-              <div className="flex justify-center mt-8">
-                <span className="px-8 py-2 rounded-2xl bg-gray-100 text-black font-bold text-lg tracking-wide shadow border border-blue-800 text-center">
-                  I excel at solving problems, thinking critically, and managing time—skills that drive my success in tech.
-                </span>
               </div>
+            </div>
+
+            {/* CTA */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="pt-8"
+            >
+              <a
+                href="#projects"
+                className="inline-flex items-center gap-2 text-white hover:text-gray-300 transition-colors duration-200 group"
+              >
+                <span className="text-lg font-semibold">VIEW MY WORK</span>
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
+              </a>
             </motion.div>
-          </div>
-        </motion.div>
+          </motion.div>
+
+          {/* Right Content - Image and Skills */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="lg:col-span-5 space-y-12"
+          >
+            {/* Profile Image */}
+            <div className="relative">
+              <div className="relative w-full max-w-md mx-auto">
+                <div className="relative w-80 h-96 overflow-hidden">
+                  <Image
+                    src="/profilephoto.jpg"
+                    alt="Sagar Bawankule"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 320px, 384px"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                </div>
+                
+                {/* Magazine-style accent elements */}
+                <div className="absolute -top-4 -right-4 w-8 h-8 bg-white"></div>
+                <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-red-600"></div>
+              </div>
+            </div>
+
+            {/* Skills Cards */}
+            <div className="space-y-6">
+              <h4 className="text-2xl font-bold text-center">EXPERTISE</h4>
+              <div className="space-y-4">
+                {skills.map((skill, index) => {
+                  const IconComponent = skill.icon
+                  return (
+                    <motion.div
+                      key={skill.title}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      className="bg-white/5 border border-white/10 p-6 hover:bg-white/10 transition-colors duration-200"
+                    >
+                      <div className="flex items-start gap-4">
+                        <div className="p-3 bg-white text-black">
+                          <IconComponent className="w-5 h-5" />
+                        </div>
+                        <div>
+                          <h5 className="font-semibold text-white mb-2">{skill.title}</h5>
+                          <p className="text-sm text-gray-400">{skill.desc}</p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )
+                })}
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   )
