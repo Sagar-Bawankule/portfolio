@@ -18,8 +18,8 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    // Simulate loading duration (match LoadingScreen duration)
-    const timer = setTimeout(() => setIsLoading(false), 3000) // 3 seconds, adjust as needed
+    // Reduced loading duration for better UX
+    const timer = setTimeout(() => setIsLoading(false), 1500) // Reduced from 3 seconds to 1.5 seconds
     return () => clearTimeout(timer)
   }, [])
 

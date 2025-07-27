@@ -31,6 +31,39 @@ body {
   transition: color 0.3s ease, background-color 0.3s ease;
 }
 
+/* Performance optimizations */
+* {
+  will-change: auto;
+}
+
+/* Optimize animations for performance */
+.animate-optimized {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Reduce motion for mobile and users who prefer it */
+@media (prefers-reduced-motion: reduce), (max-width: 768px) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  /* Keep essential animations but make them subtle */
+  .animate-float,
+  .animate-pulse-glow,
+  .animate-neon-pulse,
+  .animate-float-slow {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
 /* Consistent section heading styles */
 .section-heading {
   @apply text-4xl md:text-5xl font-bold mb-4 tracking-tight;
@@ -112,10 +145,10 @@ body {
   overflow: hidden;
 }
 
-/* Custom animations */
+/* Custom animations - optimized for performance */
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
+  0%, 100% { transform: translateY(0px) translateZ(0); }
+  50% { transform: translateY(-20px) translateZ(0); }
 }
 
 @keyframes pulse-glow {
@@ -134,14 +167,17 @@ body {
 
 .animate-float {
   animation: float 3s ease-in-out infinite;
+  will-change: transform;
 }
 
 .animate-pulse-glow {
   animation: pulse-glow 2s ease-in-out infinite;
+  will-change: box-shadow;
 }
 
 .animate-neon-pulse {
   animation: neon-pulse 2s ease-in-out infinite;
+  will-change: box-shadow;
 }
 
 /* Loading spinner */
@@ -201,12 +237,13 @@ textarea:focus-visible {
 
 /* Floating animation for background elements */
 @keyframes float-slow {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-10px) rotate(5deg); }
+  0%, 100% { transform: translateY(0px) rotate(0deg) translateZ(0); }
+  50% { transform: translateY(-10px) rotate(5deg) translateZ(0); }
 }
 
 .animate-float-slow {
   animation: float-slow 6s ease-in-out infinite;
+  will-change: transform;
 }
 
 /* Enhanced button hover effects */
@@ -236,10 +273,58 @@ textarea:focus-visible {
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  will-change: transform, box-shadow;
 }
 
 .professional-card:hover {
   background: rgba(255, 255, 255, 0.95);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-  transform: translateY(-2px);
+  transform: translateY(-2px) translateZ(0);
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  /* Reduce blur effects on mobile for better performance */
+  .glass-effect,
+  .section-bg-white,
+  .section-bg-light,
+  .section-bg-gradient,
+  .hero-section {
+    backdrop-filter: none;
+  }
+  
+  /* Reduce shadow complexity on mobile */
+  .professional-card {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  .professional-card:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Optimize text rendering */
+  .section-heading,
+  .gradient-text,
+  .animate-gradient-text {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Prevent layout shifts */
+img, video, canvas, audio, iframe, embed, object {
+  display: block;
+  max-width: 100%;
+}
+
+/* Optimize for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-gradient-text {
+    animation: none;
+  }
+  
+  .gradient-animation {
+    animation: none;
+  }
 }

@@ -156,7 +156,7 @@ const Contact = () => {
                       <IconComponent className="w-5 h-5 text-white" />
                     </div>
                     <div>
-                      <p className="font-semibold text-gray-100">{info.label}</p>
+                      <p className="font-semibold text-black">{info.label}</p>
                       <p className="text-gray-700">{info.value}</p>
                     </div>
                   </motion.a>

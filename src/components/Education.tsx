@@ -12,19 +12,19 @@ export default function Education() {
     visible: {
       opacity: 1,
       transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.2
+        delayChildren: 0.2,
+        staggerChildren: 0.15
       }
     }
   }
 
   const itemVariants = {
-    hidden: { y: 60, opacity: 0 },
+    hidden: { y: 30, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.8,
+        duration: 0.6,
         ease: "easeOut"
       }
     }
@@ -64,7 +64,7 @@ export default function Education() {
   return (
     <section 
       ref={ref}
-      className="py-20 px-6 section-bg-white bg-gray-900"
+      className="py-20 px-6 section-bg-light bg-gradient-to-br from-blue-50 via-white to-cyan-50"
       id="education"
     >
 
@@ -76,10 +76,10 @@ export default function Education() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="section-heading text-gray-100">
+          <h2 className="section-heading text-gray-900">
             Education
           </h2>
-          <p className="section-subheading text-gray-300">
+          <p className="section-subheading text-gray-600">
             Academic journey from secondary education to specialized AI studies
           </p>
         </motion.div>
@@ -90,53 +90,56 @@ export default function Education() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="space-y-5 mb-10"
+          className="space-y-6 mb-10"
         >
           {educationData.map((edu, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
-              className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl p-4 shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-800 relative group"
-              whileHover={{ scale: 1.01 }}
+              className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 relative group professional-card"
+              whileHover={{ 
+                scale: 1.02,
+                y: -2
+              }}
               transition={{ duration: 0.3 }}
             >
               {/* Timeline Line */}
               {index < educationData.length - 1 && (
-                <div className="absolute left-5 -bottom-5 w-0.5 h-5 bg-gray-700"></div>
+                <div className="absolute left-6 -bottom-6 w-0.5 h-6 bg-gradient-to-b from-blue-400 to-purple-400"></div>
               )}
               
               {/* Icon */}
               <motion.div
-                className="absolute -left-2 top-5 w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white shadow"
-                whileHover={{ scale: 1.1 }}
+                className="absolute -left-3 top-6 w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white shadow-lg border-2 border-white"
+                whileHover={{ scale: 1.1, rotate: 5 }}
                 transition={{ duration: 0.3 }}
               >
-                <span className="text-base">{edu.icon}</span>
+                <span className="text-lg">{edu.icon}</span>
               </motion.div>
 
-              <div className="ml-6">
-                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-2">
+              <div className="ml-8">
+                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-3">
                   <div className="lg:flex-1">
-                    <h3 className="text-base font-bold text-gray-100 mb-1">
+                    <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-300">
                       {edu.institution}
                     </h3>
-                    <p className="text-gray-300 font-medium mb-1 text-sm">
+                    <p className="text-gray-700 font-medium mb-2 text-sm">
                       {edu.degree}
                     </p>
                   </div>
-                  <span className="text-xs text-gray-300 bg-gray-800 px-2 py-1 rounded-full font-medium lg:ml-4">
+                  <span className="text-xs text-blue-600 bg-blue-50 px-3 py-1.5 rounded-full font-medium lg:ml-4 border border-blue-100">
                     {edu.period}
                   </span>
                 </div>
                 
-                <div className="flex items-center gap-2">
-                  <span className="text-xs text-gray-300">Score:</span>
-                  <span className="font-bold text-sm text-blue-400">
+                <div className="flex items-center gap-3">
+                  <span className="text-sm text-gray-600 font-medium">Score:</span>
+                  <span className="font-bold text-lg text-blue-600 bg-blue-50 px-3 py-1 rounded-lg">
                     {edu.score}
                   </span>
                   {index === 0 && (
                     <motion.span
-                      className="bg-green-900 text-green-300 text-[10px] px-2 py-0.5 rounded-full font-medium"
+                      className="bg-green-100 text-green-700 text-xs px-3 py-1 rounded-full font-medium border border-green-200"
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
                       transition={{ delay: 0.5, type: "spring" }}
@@ -150,46 +153,23 @@ export default function Education() {
           ))}
         </motion.div>
 
-        {/* Academic Summary */}
+        {/* Additional Info */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
           className="text-center"
         >
-          <h3 className="text-lg font-bold text-gray-100 mb-4">
-            Academic Highlights
-          </h3>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
-            {[
-              { icon: "🏆", label: "High Achiever", desc: "Consistent Performance" },
-              { icon: "🤖", label: "AI Specialist", desc: "Current Focus" },
-              { icon: "💻", label: "Tech Background", desc: "Computer Technology" },
-              { icon: "📈", label: "Growing", desc: "Continuous Learning" }
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ 
-                  duration: 0.3,
-                  delay: index * 0.04,
-                  ease: "easeOut"
-                }}
-                whileHover={{ 
-                  scale: 1.04,
-                  backgroundColor: "rgba(59, 130, 246, 0.15)"
-                }}
-                className="text-center p-3 rounded-lg bg-gray-800 border border-gray-700 hover:bg-blue-900 hover:border-blue-700 transition-all duration-300 cursor-default"
-              >
-                <div className="text-xl mb-1">{item.icon}</div>
-                <div className="text-base font-bold text-gray-100 mb-1">{item.label}</div>
-                <div className="text-xs text-gray-300">{item.desc}</div>
-              </motion.div>
-            ))}
+          <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 border border-blue-100">
+            <h3 className="text-xl font-bold text-gray-900 mb-4">
+              Continuous Learning & Growth
+            </h3>
+            <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
+              My educational journey reflects a commitment to continuous learning and adaptation to emerging technologies. 
+              From foundational computer science to specialized AI studies, each step has built upon the previous, 
+              creating a strong foundation for innovation and problem-solving.
+            </p>
           </div>
         </motion.div>
       </div>
