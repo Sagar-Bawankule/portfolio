@@ -47,25 +47,20 @@ const experienceData = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-32 px-6 bg-white text-black">
-      <div className="max-w-7xl mx-auto">
-        {/* Magazine Header */}
+    <section id="experience" className="py-16 sm:py-20 lg:py-24 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center mb-12 sm:mb-16"
         >
-          <div className="flex items-center justify-center gap-4 mb-6">
-            <div className="w-16 h-px bg-black"></div>
-            <span className="text-sm font-light tracking-widest text-gray-600">EXPERIENCE</span>
-            <div className="w-16 h-px bg-black"></div>
-          </div>
-          <h2 className="text-5xl lg:text-7xl font-bold mb-6">
-            JOURNEY
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            My Experience
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             My academic and professional journey in technology and AI
           </p>
         </motion.div>

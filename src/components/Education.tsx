@@ -64,22 +64,22 @@ export default function Education() {
   return (
     <section 
       ref={ref}
-      className="py-20 px-6 section-bg-light bg-gradient-to-br from-blue-50 via-white to-cyan-50"
+      className="py-16 sm:py-20 lg:py-24 bg-gray-50"
       id="education"
     >
 
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="section-heading text-gray-900">
-            Education
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            My Education
           </h2>
-          <p className="section-subheading text-gray-600">
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Academic journey from secondary education to specialized AI studies
           </p>
         </motion.div>
@@ -153,25 +153,7 @@ export default function Education() {
           ))}
         </motion.div>
 
-        {/* Additional Info */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-center"
-        >
-          <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 border border-blue-100">
-            <h3 className="text-xl font-bold text-gray-900 mb-4">
-              Continuous Learning & Growth
-            </h3>
-            <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              My educational journey reflects a commitment to continuous learning and adaptation to emerging technologies. 
-              From foundational computer science to specialized AI studies, each step has built upon the previous, 
-              creating a strong foundation for innovation and problem-solving.
-            </p>
-          </div>
-        </motion.div>
+        
       </div>
     </section>
   )

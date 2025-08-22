@@ -104,17 +104,21 @@ const cardVariants = {
 
 const Certifications = () => {
   return (
-    <section id="certifications" className="py-16 px-4 section-bg-light">
-      <div className="max-w-5xl mx-auto">
+    <section id="certifications" className="py-16 sm:py-20 lg:py-24 bg-gray-50">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-12"
+          className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="section-heading mb-2">Certifications</h2>
-          <p className="section-subheading">Professional credentials and training that demonstrate my expertise and commitment to continuous learning.</p>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            My Certifications
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Professional credentials and training that demonstrate my expertise and commitment to continuous learning
+          </p>
         </motion.div>
 
         <motion.div

@@ -65,7 +65,7 @@ export default function LoadingScreen() {
 
   return (
     <motion.div
-      className="fixed inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 z-50 flex items-center justify-center"
+      className="fixed inset-0 bg-white z-50 flex items-center justify-center"
       exit={{ 
         opacity: 0,
         scale: 0.9, // Reduced scale effect
