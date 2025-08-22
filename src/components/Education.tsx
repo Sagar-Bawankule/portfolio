@@ -64,22 +64,22 @@ export default function Education() {
   return (
     <section 
       ref={ref}
-      className="py-16 sm:py-20 lg:py-24 bg-gray-50"
+      className="py-20 px-6 section-bg-light"
       id="education"
     >
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-12 sm:mb-16"
+          className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-            My Education
+          <h2 className="section-heading text-gray-900">
+            Education
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="section-subheading text-gray-600">
             Academic journey from secondary education to specialized AI studies
           </p>
         </motion.div>

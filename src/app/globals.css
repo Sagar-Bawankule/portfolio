@@ -31,16 +31,57 @@ body {
   transition: color 0.3s ease, background-color 0.3s ease;
 }
 
-/* Performance optimizations */
-* {
-  will-change: auto;
+/* Clean Section Backgrounds - No Animations */
+.section-bg-white {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
 }
 
-/* Optimize animations for performance */
-.animate-optimized {
-  will-change: transform, opacity;
-  backface-visibility: hidden;
-  transform: translateZ(0);
+.section-bg-light {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+}
+
+.section-bg-slate {
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+}
+
+/* Hero Background - Simple Dark */
+.hero-dark {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+}
+
+/* Clean Card Styles */
+.professional-card {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid #e2e8f0;
+  backdrop-filter: blur(10px);
+  transition: box-shadow 0.3s ease;
+}
+
+.professional-card:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Typography */
+.section-heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  font-family: 'Poppins', sans-serif;
+}
+
+.section-subheading {
+  font-size: 1.125rem;
+  color: #64748b;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.section-divider {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #3b82f6 0%, #8b5cf6 100%);
+  border-radius: 2px;
 }
 
 /* Reduce motion for mobile and users who prefer it */
