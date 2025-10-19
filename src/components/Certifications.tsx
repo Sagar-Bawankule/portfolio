@@ -113,7 +113,7 @@ const Certifications = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="section-heading text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mb-4">
             My Certifications
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -132,16 +132,18 @@ const Certifications = () => {
             <motion.div
               key={cert.id}
               variants={cardVariants}
-              whileHover={{ y: -6, scale: 1.025, boxShadow: '0 8px 32px rgba(0,0,0,0.12)' }}
-              className="relative border border-cyan-900 rounded-xl p-5 flex flex-col gap-3 shadow-md hover:shadow-xl transition-all duration-300 min-h-[210px] bg-white"
+              whileHover={{ y: -8, scale: 1.03, boxShadow: '0 12px 40px rgba(59, 130, 246, 0.15)' }}
+              className="relative border border-gray-200 rounded-xl p-5 flex flex-col gap-3 shadow-md hover:shadow-2xl hover:border-blue-300 transition-all duration-300 min-h-[210px] bg-white group"
             >
               {/* Header */}
               <div className="flex items-center gap-2 mb-1">
-                <Award className="w-5 h-5 text-blue-500" />
-                <span className="font-semibold text-cyan-900 text-base line-clamp-2">{cert.title}</span>
+                <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <Award className="w-5 h-5 text-white" />
+                </div>
+                <span className="font-bold text-gray-900 text-base line-clamp-2 group-hover:text-blue-600 transition-colors">{cert.title}</span>
               </div>
-              <div className="flex items-center gap-2 text-xs text-cyan-800 mb-1">
-                <span>{cert.issuer}</span>
+              <div className="flex items-center gap-2 text-xs text-gray-600 mb-1">
+                <span className="font-medium">{cert.issuer}</span>
                 <span className="mx-1">•</span>
                 <Calendar className="w-4 h-4 inline-block" />
                 <span>{cert.date}</span>

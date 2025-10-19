@@ -41,16 +41,23 @@ export default function Hero() {
 
             <div>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <button className="group bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-2xl shadow-blue-500/25 hover:shadow-blue-500/40 transition-all duration-300 flex items-center justify-center gap-3">
+                <a 
+                  href="/resume.pdf" 
+                  download
+                  className="group bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-2xl shadow-blue-500/25 hover:shadow-blue-500/40 transition-all duration-300 flex items-center justify-center gap-3"
+                >
                   <Download className="w-5 h-5" />
                   Download Resume
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </button>
+                </a>
                 
-                <button className="group bg-white/10 backdrop-blur-md hover:bg-white/20 text-white border border-white/20 hover:border-white/30 px-8 py-4 rounded-xl font-semibold text-lg shadow-xl transition-all duration-300 flex items-center justify-center gap-3">
+                <a 
+                  href="#contact"
+                  className="group bg-white/10 backdrop-blur-md hover:bg-white/20 text-white border border-white/20 hover:border-white/30 px-8 py-4 rounded-xl font-semibold text-lg shadow-xl transition-all duration-300 flex items-center justify-center gap-3"
+                >
                   <Mail className="w-5 h-5" />
                   Get In Touch
-                </button>
+                </a>
               </div>
             </div>
 
@@ -75,21 +82,36 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right Column - Image */}
+          {/* Right Column - Modern Circular Photo */}
           <div className="order-1 lg:order-2 flex justify-center">
-            <div className="relative">
-              <div className="w-80 h-80 lg:w-96 lg:h-96 relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-600/20 rounded-3xl backdrop-blur-sm border border-white/10 shadow-2xl"></div>
+            <div className="relative group">
+              {/* Subtle glow effect */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 rounded-full blur-2xl opacity-25 group-hover:opacity-35 transition duration-500"></div>
+              
+              {/* Main circular container */}
+              <div className="relative w-80 h-80 lg:w-96 lg:h-96">
+                {/* Gradient border ring */}
+                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500 via-purple-500 to-cyan-500 p-1">
+                  <div className="w-full h-full rounded-full bg-slate-950"></div>
+                </div>
                 
-                <div className="absolute inset-4 rounded-2xl overflow-hidden">
+                {/* Photo */}
+                <div className="absolute inset-3 rounded-full overflow-hidden ring-2 ring-white/10">
                   <Image
                     src="/profilephoto.webp"
                     alt="Sagar Bawankule"
                     fill
-                    className="object-cover"
+                    className="object-cover hover:scale-105 transition-transform duration-500"
                     priority
                   />
+                  
+                  {/* Subtle overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent"></div>
                 </div>
+
+                {/* Corner accent orbs */}
+                <div className="absolute -top-2 -right-2 w-16 h-16 bg-gradient-to-br from-blue-500/20 to-transparent rounded-full blur-xl"></div>
+                <div className="absolute -bottom-2 -left-2 w-20 h-20 bg-gradient-to-tr from-purple-500/20 to-transparent rounded-full blur-xl"></div>
               </div>
             </div>
           </div>

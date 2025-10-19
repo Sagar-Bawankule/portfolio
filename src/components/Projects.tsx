@@ -87,8 +87,12 @@ const Projects = () => {
   const otherProjects = projects.filter(p => !p.featured)
 
   return (
-    <section id="projects" className="py-20 px-6 section-bg-gradient">
-      <div className="max-w-7xl mx-auto">
+    <section id="projects" className="py-20 px-6 bg-gradient-to-br from-gray-50 via-purple-50/20 to-blue-50/30 relative overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute top-20 left-10 w-80 h-80 bg-purple-200/20 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-200/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+      
+      <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

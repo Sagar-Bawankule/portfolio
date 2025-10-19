@@ -42,7 +42,7 @@ const Footer = () => {
               Full Stack Developer passionate about creating exceptional digital experiences through innovative technology and thoughtful design.
             </p>
             <a
-              href="mailto:sagarbawankule07@gmail.com"
+              href="mailto:sagarbawankule334@gmail.com"
               className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-xl"
             >
               Let's Connect
@@ -77,10 +77,10 @@ const Footer = () => {
               <div>
                 <p className="text-slate-400 text-sm mb-1">Email</p>
                 <a 
-                  href="mailto:sagarbawankule07@gmail.com"
+                  href="mailto:sagarbawankule334@gmail.com"
                   className="text-slate-300 hover:text-blue-400 transition-colors"
                 >
-                  sagarbawankule07@gmail.com
+                  sagarbawankule334@gmail.com
                 </a>
               </div>
               <div>

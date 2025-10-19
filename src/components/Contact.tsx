@@ -2,7 +2,7 @@
 
 import { motion, useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter } from 'lucide-react'
+import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter, Instagram } from 'lucide-react'
 
 export default function Contact() {
   const ref = useRef(null)
@@ -73,9 +73,9 @@ export default function Contact() {
       color: "hover:text-blue-600"
     },
     {
-      name: "Twitter",
-      icon: Twitter,
-      href: "https://twitter.com/yourusername",
+      name: "Instagram",
+      icon: Instagram,
+      href: "https://www.instagram.com/thee_sagar_?igsh=c3doaXMyczhiMzRr",
       color: "hover:text-blue-400"
     }
   ]
@@ -104,8 +104,12 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-12 sm:py-16 lg:py-24 section-bg-light">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-12 sm:py-16 lg:py-24 bg-gradient-to-br from-blue-50/40 via-indigo-50/30 to-purple-50/20 relative overflow-hidden">
+      {/* Decorative elements */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-blue-200/20 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-200/20 rounded-full blur-3xl"></div>
+      
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           ref={ref}
           initial="hidden"
@@ -115,7 +119,7 @@ export default function Contact() {
         >
           {/* Section Header */}
           <motion.div variants={itemVariants} className="text-center mb-8 sm:mb-12 lg:mb-16">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="section-heading text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mb-4">
               My Contact
             </h2>
             <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">

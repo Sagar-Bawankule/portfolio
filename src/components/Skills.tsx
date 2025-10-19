@@ -95,8 +95,12 @@ const categoryVariants = {
 
 const Skills = () => {
   return (
-    <section id="skills" className="py-16 px-6 section-bg-white">
-      <div className="max-w-6xl mx-auto">
+    <section id="skills" className="py-16 px-6 bg-gradient-to-br from-white via-blue-50/20 to-indigo-50/20 relative overflow-hidden">
+      {/* Subtle decorative elements */}
+      <div className="absolute top-10 right-10 w-64 h-64 bg-blue-100/30 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-10 left-10 w-72 h-72 bg-indigo-100/30 rounded-full blur-3xl"></div>
+      
+      <div className="max-w-6xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
