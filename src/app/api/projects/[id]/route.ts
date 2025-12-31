@@ -3,14 +3,19 @@ import dbConnect from '@/lib/mongodb'
 import Project from '@/models/Project'
 import { verifyToken, getTokenFromRequest } from '@/lib/auth'
 
+type Props = {
+    params: Promise<{ id: string }>
+}
+
 // GET single project
 export async function GET(
     request: Request,
-    { params }: { params: { id: string } }
+    { params }: Props
 ) {
     try {
+        const { id } = await params
         await dbConnect()
-        const project = await Project.findById(params.id)
+        const project = await Project.findById(id)
 
         if (!project) {
             return NextResponse.json({ error: 'Project not found' }, { status: 404 })
@@ -28,7 +33,7 @@ export async function GET(
 // PUT update project (protected)
 export async function PUT(
     request: Request,
-    { params }: { params: { id: string } }
+    { params }: Props
 ) {
     try {
         const token = getTokenFromRequest(request)
@@ -36,11 +41,12 @@ export async function PUT(
             return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
         }
 
+        const { id } = await params
         const body = await request.json()
         await dbConnect()
 
         const project = await Project.findByIdAndUpdate(
-            params.id,
+            id,
             body,
             { new: true, runValidators: true }
         )
@@ -61,7 +67,7 @@ export async function PUT(
 // DELETE project (protected)
 export async function DELETE(
     request: Request,
-    { params }: { params: { id: string } }
+    { params }: Props
 ) {
     try {
         const token = getTokenFromRequest(request)
@@ -69,8 +75,9 @@ export async function DELETE(
             return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
         }
 
+        const { id } = await params
         await dbConnect()
-        const project = await Project.findByIdAndDelete(params.id)
+        const project = await Project.findByIdAndDelete(id)
 
         if (!project) {
             return NextResponse.json({ error: 'Project not found' }, { status: 404 })
