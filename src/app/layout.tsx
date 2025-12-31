@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import { ThemeProvider } from '@/context/ThemeContext'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -22,9 +23,24 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className="font-sans min-h-screen antialiased">
-        {children}
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+      <body className={`${inter.className} min-h-screen antialiased`}>
+        <ThemeProvider>
+          {/* Background Elements Container */}
+          <div className="theme-background">
+            <div className="mesh-gradient" />
+            <div className="grid-pattern" />
+            <div className="noise-overlay" />
+            <div className="gradient-orb gradient-orb-1" />
+            <div className="gradient-orb gradient-orb-2" />
+            <div className="gradient-orb gradient-orb-3" />
+          </div>
+
+          {/* Main Content */}
+          <div className="relative z-10">
+            {children}
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   )
