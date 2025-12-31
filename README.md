@@ -188,7 +188,34 @@ To customize colors, edit `src/app/globals.css`:
 
 ## 📦 Deployment
 
-### Deploy on Vercel (Recommended)
+### Deploy on Netlify
+
+1. **Push your code to GitHub**
+
+2. **Go to [Netlify](https://app.netlify.com)**
+
+3. **Click "Add new site" → "Import an existing project"**
+
+4. **Connect your GitHub repository**
+
+5. **Configure build settings:**
+   - Build command: `npm run build`
+   - Publish directory: `.next`
+
+6. **Add Environment Variables** (Site settings → Environment variables):
+   ```
+   MONGODB_URI=your_mongodb_connection_string
+   JWT_SECRET=your_jwt_secret_key
+   ADMIN_USERNAME=admin
+   ADMIN_PASSWORD=your_secure_password
+   ADMIN_EMAIL=your@email.com
+   ```
+
+7. **Deploy!**
+
+8. **After deployment**, visit `https://yoursite.netlify.app/api/seed` once to populate the database.
+
+### Deploy on Vercel (Alternative)
 
 1. Push your code to GitHub
 2. Connect your repository to [Vercel](https://vercel.com)
