@@ -9,6 +9,24 @@
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
+# Image optimization settings
+[build.processing]
+  skip_processing = false
+
+[build.processing.css]
+  bundle = true
+  minify = true
+
+[build.processing.js]
+  bundle = true
+  minify = true
+
+[build.processing.html]
+  pretty_urls = true
+
+[build.processing.images]
+  compress = true
+
 # Security Headers
 [[headers]]
   for = "/*"
